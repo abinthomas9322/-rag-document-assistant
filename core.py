@@ -15,7 +15,8 @@ Author: Abin Oommen Thomas
 
 from __future__ import annotations
 
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 import numpy as np
 from pypdf import PdfReader
@@ -23,14 +24,14 @@ from pypdf import PdfReader
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-EMBED_MODEL = "all-MiniLM-L6-v2"   # small, fast, runs on CPU (~80 MB)
-CHUNK_SIZE = 800                   # characters per chunk
-CHUNK_OVERLAP = 120                # overlap keeps context across chunks
-TOP_K = 4                          # passages retrieved per question
+EMBED_MODEL = "all-MiniLM-L6-v2"  # small, fast, runs on CPU (~80 MB)
+CHUNK_SIZE = 800  # characters per chunk
+CHUNK_OVERLAP = 120  # overlap keeps context across chunks
+TOP_K = 4  # passages retrieved per question
 
 # --- LLM provider: Groq (free, OpenAI-compatible) ---
 LLM_BASE_URL = "https://api.groq.com/openai/v1"
-LLM_MODEL = "llama-3.3-70b-versatile"   # free Groq model; change if you like
+LLM_MODEL = "llama-3.3-70b-versatile"  # free Groq model; change if you like
 
 
 def extract_text(uploaded_files: Iterable[Any]) -> str:
@@ -97,9 +98,7 @@ def build_index(chunks: list[str], embedder: Any) -> np.ndarray:
     Returns:
         A 2-D array of unit-length embedding vectors, one row per chunk.
     """
-    vecs = embedder.encode(
-        chunks, convert_to_numpy=True, show_progress_bar=False
-    )
+    vecs = embedder.encode(chunks, convert_to_numpy=True, show_progress_bar=False)
     vecs = np.asarray(vecs, dtype=float)
     vecs = vecs / (np.linalg.norm(vecs, axis=1, keepdims=True) + 1e-10)
     return vecs
@@ -127,7 +126,7 @@ def retrieve(
     q = embedder.encode([question], convert_to_numpy=True)[0]
     q = np.asarray(q, dtype=float)
     q = q / (np.linalg.norm(q) + 1e-10)
-    scores = index @ q                       # cosine similarity
+    scores = index @ q  # cosine similarity
     top = np.argsort(scores)[::-1][:k]
     return [chunks[i] for i in top], [float(scores[i]) for i in top]
 
