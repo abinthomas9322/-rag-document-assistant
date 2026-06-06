@@ -35,6 +35,13 @@ Then in the sidebar: paste your **Groq API key**, upload a PDF, click **Process 
 
 > Get a **free** key at https://console.groq.com (no credit card required).
 
+Need a document to try it with? Download the real public example (the Transformer
+paper) — see [`examples/`](examples/):
+
+```bash
+python examples/download_example.py
+```
+
 ## 🧰 Tech stack
 | Layer | Tool |
 |-------|------|

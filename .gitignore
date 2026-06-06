@@ -19,3 +19,6 @@ env/
 *.faiss
 *.index
 data/
+
+# Example document (downloaded locally, not redistributed)
+examples/*.pdf
