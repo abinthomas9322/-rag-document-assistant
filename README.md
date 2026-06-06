@@ -62,6 +62,21 @@ python examples/download_example.py
 | Vector search | NumPy cosine similarity |
 | LLM | Groq (`llama-3.3-70b-versatile`) |
 
+## 🏛️ Architecture
+A thin Streamlit UI (`app.py`) over pure, testable RAG logic (`core.py`). Indexed
+chunks and embeddings live in per-session state — there is no database.
+
+```mermaid
+flowchart LR
+    pdf[/"PDF"/] --> extract["extract_text"] --> chunk["chunk_text"]
+    chunk --> build["build_index embed"] --> session[("session_state:<br/>chunks + index")]
+    q(["Question"]) --> retrieve["retrieve"]
+    session --> retrieve --> prompt["build_prompt"] --> answer["answer_question"]
+    answer --> groq[["Groq LLM"]] --> out(["Cited answer"])
+```
+
+📐 Full diagrams (component, data-flow, sequence) → [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+
 ## 🌐 Deploy it (free)
 Push this repo to GitHub, then deploy on **[Streamlit Community Cloud](https://streamlit.io/cloud)** in a few clicks so anyone (recruiters!) can try it live.
 
