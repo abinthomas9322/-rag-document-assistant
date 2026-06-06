@@ -23,6 +23,17 @@ PDF → text extraction → chunking → embeddings → vector similarity search
 4. **Retrieve** the top-k most relevant chunks for a question (cosine similarity)
 5. **Generate** an answer with the LLM, grounded only in those chunks
 
+## 📸 Screenshots
+
+Captured from a real run against the example paper ([Attention Is All You Need](examples/)).
+
+| | |
+|---|---|
+| **Landing** — clean empty state | **Indexed** — 59 chunks from the paper |
+| ![Landing page](docs/screenshots/01-landing.png) | ![Document indexed](docs/screenshots/02-indexed.png) |
+| **Grounded answer** — cites its sources | **"I don't know"** — refuses out-of-context questions |
+| ![Grounded answer](docs/screenshots/03-answer.png) | ![Grounded refusal](docs/screenshots/04-grounded-refusal.png) |
+
 ## 🚀 Quick start
 ```bash
 # 1. Install dependencies
