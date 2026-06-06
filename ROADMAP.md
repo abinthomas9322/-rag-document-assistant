@@ -16,8 +16,8 @@ Each slice is one coherent change = one commit. Tick + update % + note commit ha
 - [x] 1.0 Extract core RAG logic into a testable module .. 36%  (commit 08e0155)
 - [x] 1.1 Unit tests for core (chunking, retrieval) ...... 46%  (commit 2159a7a)
 - [x] 1.2 Edge/negative tests + LLM-boundary mock ........ 54%  (commit 2159a7a)
-- [ ] 2.0 CI/CD pipeline (ruff, mypy, bandit, pip-audit, pytest, gitleaks, Trivy, CodeQL) 66%
-- [ ] 2.1 Dependabot config ............................. 68%
+- [x] 2.0 CI/CD pipeline (ruff, mypy, bandit, pip-audit, pytest, gitleaks, Trivy, CodeQL) 66% (commit 67296cc)
+- [x] 2.1 Dependabot config ............................. 68%  (commit 67296cc)
 - [ ] 3.0 Replace fake sample data with a REAL document .. 74%
 - [ ] 3.1 Capture ≥4 real-run screenshots ............... 78%
 - [ ] 4.0 Mermaid diagrams (architecture, DFD, sequence) . 84%
@@ -29,14 +29,14 @@ Each slice is one coherent change = one commit. Tick + update % + note commit ha
 
 ## 🐞 Known issues
 - `sample_document.pdf` is fabricated data — violates §5; must be replaced before portfolio use.
-- No CI/CD pipeline yet (§6).
 - README not yet in canonical 21-section form (§7a).
 - GitHub repo name has a leading hyphen (`-rag-document-assistant`) — rename pending.
+- CI runs only after the next push; badges go live once workflows have run on GitHub.
 
 ## ⏭️ Next
-**Slice 2.0** — add the canonical CI/CD pipeline (§6): GitHub Actions running ruff,
-ruff format check, mypy, bandit, pip-audit, pytest, plus gitleaks, Trivy and CodeQL, with
-a Dependabot config. Must run on push + PR and be green.
+**Slice 3.0** — replace the fabricated `sample_document.pdf` (§5 violation) with a real
+public document, wire it in as a clearly-labelled example, and capture ≥4 real-run
+screenshots for the README from an actual session.
 
 ## ✍️ TODO: my words
 *(Abin — your own notes on priorities, scope, and what "done" means to you go here.)*
