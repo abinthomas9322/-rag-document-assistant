@@ -13,9 +13,9 @@ Each slice is one coherent change = one commit. Tick + update % + note commit ha
 - [x] 0.4 Git init, clean history, push to GitHub ........ 24%  (pushed)
 - [x] 0.5 Add CLAUDE.md rules + handoff report ........... 28%  (commits 79c0078, f6eca49)
 - [x] 0.6 ROADMAP.md ..................................... 30%  (this slice)
-- [ ] 1.0 Extract core RAG logic into a testable module .. 36%
-- [ ] 1.1 Unit tests for core (chunking, retrieval) ...... 46%
-- [ ] 1.2 Edge/negative tests + LLM-boundary mock ........ 54%
+- [x] 1.0 Extract core RAG logic into a testable module .. 36%  (commit 08e0155)
+- [x] 1.1 Unit tests for core (chunking, retrieval) ...... 46%  (commit 2159a7a)
+- [x] 1.2 Edge/negative tests + LLM-boundary mock ........ 54%  (commit 2159a7a)
 - [ ] 2.0 CI/CD pipeline (ruff, mypy, bandit, pip-audit, pytest, gitleaks, Trivy, CodeQL) 66%
 - [ ] 2.1 Dependabot config ............................. 68%
 - [ ] 3.0 Replace fake sample data with a REAL document .. 74%
@@ -29,15 +29,14 @@ Each slice is one coherent change = one commit. Tick + update % + note commit ha
 
 ## 🐞 Known issues
 - `sample_document.pdf` is fabricated data — violates §5; must be replaced before portfolio use.
-- No automated tests yet (§4).
 - No CI/CD pipeline yet (§6).
 - README not yet in canonical 21-section form (§7a).
 - GitHub repo name has a leading hyphen (`-rag-document-assistant`) — rename pending.
 
 ## ⏭️ Next
-**Slice 1.0** — extract the pure RAG functions (`extract_text`, `chunk_text`, `build_index`,
-`retrieve`) out of `app.py` into `core.py` so they can be imported and unit-tested without
-the Streamlit runtime. `app.py` becomes a thin UI layer that imports from `core.py`.
+**Slice 2.0** — add the canonical CI/CD pipeline (§6): GitHub Actions running ruff,
+ruff format check, mypy, bandit, pip-audit, pytest, plus gitleaks, Trivy and CodeQL, with
+a Dependabot config. Must run on push + PR and be green.
 
 ## ✍️ TODO: my words
 *(Abin — your own notes on priorities, scope, and what "done" means to you go here.)*
