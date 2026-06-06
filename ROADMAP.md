@@ -20,7 +20,7 @@ Each slice is one coherent change = one commit. Tick + update % + note commit ha
 - [x] 2.1 Dependabot config ............................. 68%  (commit 67296cc)
 - [x] 3.0 Replace fake sample data with a REAL document .. 74%  (commit 7ff5d19)
 - [x] 3.1 Capture ≥4 real-run screenshots (Abin runs app) 78%  (commit 86177d4)
-- [ ] 4.0 Mermaid diagrams (architecture, DFD, sequence) . 84%
+- [x] 4.0 Mermaid diagrams (architecture, DFD, sequence) . 84%  (commit 6f513eb)
 - [ ] 5.0 Rebuild README to canonical 21-section structure 92%
 - [ ] 5.1 docs/JOURNAL.md + docs/TECHNICAL_REPORT.md ..... 98%
 - [ ] 6.0 (Optional) Deploy live demo on Streamlit Cloud . 100%
@@ -33,9 +33,9 @@ Each slice is one coherent change = one commit. Tick + update % + note commit ha
 - CI runs only after the next push; badges go live once workflows have run on GitHub.
 
 ## ⏭️ Next
-**Slice 4.0** — Mermaid diagrams (architecture, data-flow, sequence) derived from the real
-code, added under `docs/` and referenced from the README. Then **Slice 5.0** — rebuild the
-README to the canonical 21-section structure and add JOURNAL + TECHNICAL_REPORT.
+**Slice 5.0** — rebuild the README to the canonical 21-section structure (§7a) with real CI
+badges, then add `docs/JOURNAL.md` and `docs/TECHNICAL_REPORT.md` (§7b). The `✍️ TODO`
+opinion sections are left for Abin to write in his own words.
 
 ## ✍️ TODO: my words
 *(Abin — your own notes on priorities, scope, and what "done" means to you go here.)*
